@@ -35,9 +35,12 @@ resource "aws_subnet"  "public_subnet" {
   vpc_id = aws_vpc.vpc_main.id
   map_public_ip_on_launch = "true"
   availability_zone = data.aws_availability_zones.available.names[count.index]
-  tags =  {
-    Name = "PublicSubnet"
-  }
+  
+  tags = merge(
+    var.tags,
+    var.public_subnet_tags,
+  )
+
 }
 
 
@@ -47,9 +50,12 @@ resource "aws_subnet"  "private_subnet" {
   vpc_id = aws_vpc.vpc_main.id
   map_public_ip_on_launch = "true"
   availability_zone = data.aws_availability_zones.available.names[count.index]
-  tags = {
-    Name = "PrivateSubnet"
-  }
+  
+  tags = merge(
+    var.tags,
+    var.public_subnet_tags,
+  )
+
 }
 
 # Routing IGW Configuration
