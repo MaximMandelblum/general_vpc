@@ -32,7 +32,7 @@ variable "cidr_network" {
   type = string
   description = "CIDR of the VPC"
 
-
+  }
 # Tags 
 variable "tags" {
   description = "A map of tags to add to all resources"
