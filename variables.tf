@@ -28,3 +28,21 @@ variable "vpc_name" {
   type = string
 }
 
+# Tags 
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "public_subnet_tags" {
+  description = "Additional tags for the public subnets"
+  type        = map(string)
+  default     = {}
+}
+
+variable "private_subnet_tags" {
+  description = "Additional tags for the private subnets"
+  type        = map(string)
+  default     = {}
+}
