@@ -12,9 +12,12 @@ resource "aws_vpc"  "vpc_main" {
 
   cidr_block =  var.cidr_network 
   enable_dns_hostnames = "true"
-  tags = {
+  tags = merge (
+    {
     Name = var.vpc_name
-  }
+  },
+    var.tags
+    )
 
 }
 # Internet Gateway Creation
