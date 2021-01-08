@@ -28,10 +28,20 @@ variable "vpc_name" {
   type = string
 }
 
-# Network details (Change this only if you know what you are doing or if you think you are lucky)
-
-variable "cidr_network" {
-  type = string
-  description = "CIDR of the VPC"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
+variable "public_subnet_tags" {
+  description = "Additional tags for the public subnets"
+  type        = map(string)
+  default     = {}
+}
+
+variable "private_subnet_tags" {
+  description = "Additional tags for the private subnets"
+  type        = map(string)
+  default     = {}
+}
